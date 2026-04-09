@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/PetAdoption-Project/pet-adoption-config
+          uri: ${CONFIG_REPO_URI}
           search-paths: config
           default-label: main
 
