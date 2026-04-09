@@ -10,5 +10,4 @@ spring:
         git:
           uri: ${CONFIG_REPO_URI}
           search-paths: config
-          default-label: main
-
+          default-label: ${CONFIG_REPO_BRANCH:main}
