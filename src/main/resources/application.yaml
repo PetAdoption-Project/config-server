@@ -1,6 +1,11 @@
 server:
   port: 8888
 
+eureka:
+  instance:
+    metadata-map:
+      management.port: ${management.server.port:${server.port}}
+
 spring:
   application:
     name: config-server
