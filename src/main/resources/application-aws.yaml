@@ -1,16 +1,4 @@
-server:
-  port: 8888
-
-eureka:
-  instance:
-    metadata-map:
-      management.port: ${management.server.port:${server.port}}
-
 spring:
-  application:
-    name: config-server
-  profiles:
-    active: composite
   cloud:
     config:
       server:
@@ -23,8 +11,9 @@ spring:
             host: ${VAULT_HOST}
             port: 8200
             scheme: http
-            authentication: TOKEN
-            token: ${VAULT_TOKEN}
+            authentication: AWS_IAM
+            aws-iam:
+              role: ${VAULT_AWS_ROLE}
             kv-version: 2
             backend: secret
             default-key: petadoption/services
