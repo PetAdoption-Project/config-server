@@ -1,7 +1,4 @@
-FROM eclipse-temurin:21-jre-alpine
-RUN apk add --no-cache curl
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
-WORKDIR /app
+FROM ghcr.io/petadoption-project/pet-adoption-spring-base:21
+EXPOSE 8888
 COPY target/*.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
